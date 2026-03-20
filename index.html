@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Retro Memories Pro - Canva Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Special+Elite&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <style>
+        :root { --paper: #f4f1ea; --brown: #4a3f35; --accent: #e67e22; --green: #27ae60; --dark: #1e1e1e; }
+        body { font-family: 'Courier Prime', monospace; background: var(--paper); color: var(--brown); margin: 0; padding: 10px; display: flex; justify-content: center; min-height: 100vh; overflow-x: hidden; }
+        
+        .card { background: #fffdf5; padding: 15px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 500px; width: 100%; border: 1px solid #d9d4c5; position: relative; padding-bottom: 100px; }
+        .film-strip { background: #111; padding: 40px 10px; display: flex; flex-direction: column; gap: 30px; margin: 20px 0; border-left: 8px dashed #333; border-right: 8px dashed #333; position: relative; z-index: 1; min-height: 200px; }
+        .polaroid { background: white; padding: 10px 10px 30px 10px; box-shadow: 3px 3px 10px rgba(0,0,0,0.4); position: relative; margin-bottom: 10px; }
+        .polaroid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+
+        /* Sticker Engine */
+        .sticker-wrapper { position: absolute; z-index: 100; touch-action: none; display: inline-block; padding: 10px; cursor: move; }
+        .sticker-img { width: 100px; display: block; pointer-events: none; filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.2)); }
+        .sticker-controls { display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 2px dashed var(--accent); pointer-events: none; }
+        .edit-mode-on .sticker-wrapper.active .sticker-controls { display: block; }
+        
+        .s-btn { position: absolute; width: 30px; height: 30px; background: white; border: 2px solid var(--brown); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 110; pointer-events: auto; font-weight: bold; }
+        .s-del { top: -15px; left: -15px; color: red; }
+        .s-size { bottom: -15px; right: -15px; color: var(--green); cursor: nwse-resize; }
+
+        .btn-edit-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: var(--dark); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; z-index: 2500; box-shadow: 0 5px 15px rgba
